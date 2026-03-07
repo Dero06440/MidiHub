@@ -1,0 +1,65 @@
+<Window x:Class="MidiHub.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MidiHub" Height="500" Width="600"
+        WindowStartupLocation="CenterScreen"
+        Background="#1E1E2E" Closing="Window_Closing">
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#CDD6F4"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Statut MIDI -->
+        <Border Grid.Row="0" Background="#313244" CornerRadius="8" Padding="12" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal">
+                <Ellipse x:Name="StatusDot" Width="12" Height="12" Fill="#F38BA8" Margin="0,0,10,0"/>
+                <TextBlock x:Name="StatusText" Text="Recherche du périphérique MIDI..." FontSize="14" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Liste des sons mappés -->
+        <Border Grid.Row="1" Background="#313244" CornerRadius="8" Padding="12" Margin="0,0,0,10">
+            <StackPanel>
+                <TextBlock Text="Sons mappés" FontSize="13" Foreground="#A6ADC8" Margin="0,0,0,8"/>
+                <ItemsControl x:Name="SoundsList">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="#45475A" CornerRadius="5" Padding="10,6" Margin="0,0,0,4">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="40"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{Binding ProgramLabel}" FontWeight="Bold" Foreground="#89B4FA" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding FileName}" Foreground="#CDD6F4" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"/>
+                                    <TextBlock Grid.Column="2" x:Name="PlayIcon" Text="{Binding PlayState}" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{Binding PlayColor}"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </Border>
+
+        <!-- Log MIDI -->
+        <Border Grid.Row="2" Background="#313244" CornerRadius="8" Padding="12">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Top" Text="Log MIDI" FontSize="13" Foreground="#A6ADC8" Margin="0,0,0,8"/>
+                <ScrollViewer x:Name="LogScroller" VerticalScrollBarVisibility="Auto">
+                    <TextBlock x:Name="LogText" FontFamily="Consolas" FontSize="12" Foreground="#A6E3A1" TextWrapping="Wrap"/>
+                </ScrollViewer>
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>
