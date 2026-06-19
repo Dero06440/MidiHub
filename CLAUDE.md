@@ -39,7 +39,8 @@ FCB1010 (USB/MIDI)
 - **Interface USB-MIDI** : ESI MIDIMATE eX
 - **Port d'entrée** : `MIDIIN2 (ESI MIDIMATE eX)` (index [1])
 - **Pédales de preset** : envoient **Program Change** sur **Canal 1**
-- **Pédale d'expression** : envoie **CC 7** (volume) sur **Canal 1**, valeurs 0-127
+- **Pédale d'expression A** : CC inconnu (non testé)
+- **Pédale d'expression B** : envoie **CC 7** sur **Canal 1**, valeurs 0-127 → contrôle le **volume global** dans MidiHub
 - **Pas de Note On/Off**
 
 ### Mapping Program Change connu

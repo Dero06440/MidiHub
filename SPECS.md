@@ -47,7 +47,18 @@
 
 ---
 
-### Phase 3 - Communication avec PartiLive
+### Phase 3 - Routage MIDI vers JJazzLab
+**Objectif** : partager le FCB1010 entre MidiHub et JJazzLab
+
+| Fonctionnalité | Détail |
+|----------------|--------|
+| Port MIDI virtuel | Utiliser loopMIDI pour créer un port virtuel |
+| Routage sélectif | Certaines pédales → MidiHub, d'autres → JJazzLab |
+| MIDI Through | Retransmettre les messages non-capturés vers JJazzLab |
+
+---
+
+### Phase 4 - Communication avec PartiLive
 **Objectif** : piloter PartiLive (WPF) depuis le pédalier
 
 | Fonctionnalité | Détail |
@@ -57,16 +68,7 @@
 | Côté PartiLive | Ajouter un client Named Pipe qui écoute les commandes |
 | Reconnexion | Si PartiLive redémarre, le pipe se reconnecte |
 
----
 
-### Phase 4 - Routage MIDI vers JJazzLab
-**Objectif** : partager le FCB1010 entre MidiHub et JJazzLab
-
-| Fonctionnalité | Détail |
-|----------------|--------|
-| Port MIDI virtuel | Utiliser loopMIDI pour créer un port virtuel |
-| Routage sélectif | Certaines pédales → MidiHub, d'autres → JJazzLab |
-| MIDI Through | Retransmettre les messages non-capturés vers JJazzLab |
 
 ---
 
