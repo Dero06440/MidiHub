@@ -37,3 +37,5 @@ desktop.ini
 
 # Logs
 *.log
+*.wav
+dist/Melanchall_DryWetMidi_Native64.dylib
